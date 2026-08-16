@@ -1,0 +1,623 @@
+<!doctype html>
+<html class="bg-slate-950" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Muhammad Ayan — Python Developer & AI Automation Engineer" name="description" />
+    <title>Muhammad Ayan | Python & AI Automation</title>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #eaf1ff;
+        --muted: #9caac4;
+        --line: rgba(148, 163, 184, 0.18);
+        --accent: #80d8ff;
+        --accent-2: #a78bfa;
+        --surface: rgba(15, 23, 42, 0.68);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; scroll-snap-type: y mandatory; scroll-padding-top: 5.5rem; }
+      body { background: #020617; color: var(--ink); font-family: "Manrope", sans-serif; overflow-x: hidden; }
+      .mono { font-family: "DM Mono", monospace; }
+      .snap-section { min-height: 100svh; scroll-snap-align: start; scroll-snap-stop: normal; }
+      .section-shell { position: relative; isolation: isolate; overflow: clip; }
+      .section-shell::before { background: radial-gradient(circle at 15% 20%, rgba(128, 216, 255, .10), transparent 28%), radial-gradient(circle at 85% 75%, rgba(167, 139, 250, .09), transparent 27%); content: ""; inset: 0; pointer-events: none; position: absolute; z-index: -1; }
+      .glass { background: rgba(15, 23, 42, .68); border: 1px solid var(--line); box-shadow: 0 20px 60px rgba(0, 0, 0, .24); backdrop-filter: blur(18px); }
+      .section-label { color: var(--accent); font-family: "DM Mono", monospace; font-size: .73rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; }
+      .section-title { color: #f8fafc; font-size: clamp(2.1rem, 4vw, 4rem); font-weight: 800; letter-spacing: -.055em; line-height: 1.05; }
+      .section-title em { color: var(--accent); font-style: normal; }
+
+      .scroll-progress { background: rgba(255, 255, 255, .08); height: 3px; left: 0; position: fixed; right: 0; top: 0; z-index: 100; }
+      .scroll-progress span { background: linear-gradient(90deg, #38bdf8, #a78bfa, #f472b6); box-shadow: 0 0 16px rgba(125, 211, 252, .75); display: block; height: 100%; transform: scaleX(0); transform-origin: left; width: 100%; }
+      .top-nav { background: rgba(2, 6, 23, .72); border-bottom: 1px solid rgba(148, 163, 184, .12); backdrop-filter: blur(18px); }
+      .nav-link { border-radius: .55rem; color: #b6c2d8; font-size: .78rem; font-weight: 700; padding: .5rem .7rem; transition: color .3s ease, background .3s ease, box-shadow .3s ease, transform .3s ease; white-space: nowrap; }
+      .nav-link:hover, .nav-link.active { background: rgba(125, 211, 252, .11); box-shadow: 0 8px 20px rgba(56, 189, 248, .12); color: #e0f2fe; transform: scale(1.03); }
+
+      .hero-orb { animation: float 8s ease-in-out infinite; background: linear-gradient(135deg, rgba(56, 189, 248, .32), rgba(167, 139, 250, .26)); border: 1px solid rgba(186, 230, 253, .36); box-shadow: 0 0 0 18px rgba(56, 189, 248, .035), 0 28px 85px rgba(14, 165, 233, .19); }
+      .hero-orb::before { border: 1px dashed rgba(186, 230, 253, .38); border-radius: 999px; content: ""; inset: -18px; position: absolute; }
+      .profile-image { aspect-ratio: 1; border: 5px solid rgba(226, 232, 240, .82); border-radius: 999px; object-fit: cover; width: min(72vw, 350px); }
+      .status-dot { animation: pulse 1.8s ease-in-out infinite; background: #4ade80; border-radius: 999px; height: .55rem; width: .55rem; }
+      .chip { border: 1px solid rgba(125, 211, 252, .26); border-radius: 999px; color: #cce8fb; font-family: "DM Mono", monospace; font-size: .72rem; padding: .45rem .75rem; }
+      .primary-button { align-items: center; background: linear-gradient(110deg, #38bdf8, #818cf8); border-radius: .75rem; color: #03121e; display: inline-flex; font-weight: 800; gap: .55rem; padding: .85rem 1.05rem; transition: transform .3s ease, box-shadow .3s ease; }
+      .primary-button:hover { box-shadow: 0 14px 32px rgba(56, 189, 248, .3); transform: translateY(-2px) scale(1.03); }
+      .secondary-button { border: 1px solid rgba(148, 163, 184, .32); border-radius: .75rem; color: #dbeafe; display: inline-flex; font-weight: 700; padding: .85rem 1.05rem; transition: background .3s ease, border .3s ease, box-shadow .3s ease, transform .3s ease; }
+      .secondary-button:hover { background: rgba(148, 163, 184, .12); border-color: rgba(186, 230, 253, .56); box-shadow: 0 12px 28px rgba(56, 189, 248, .16); transform: scale(1.03); }
+
+      .info-card, .project-card, .skill-card, .timeline-card, .certificate-card { background: var(--surface); border: 1px solid var(--line); border-radius: 1.15rem; overflow: hidden; transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease; }
+      .info-card:hover, .project-card:hover, .skill-card:hover, .timeline-card:hover, .certificate-card:hover { border-color: rgba(125, 211, 252, .46); box-shadow: 0 18px 44px rgba(0, 0, 0, .24); transform: translateY(-4px) scale(1.03); }
+      .skill-icon { align-items: center; background: linear-gradient(135deg, rgba(56, 189, 248, .18), rgba(167, 139, 250, .16)); border: 1px solid rgba(125, 211, 252, .18); border-radius: .75rem; color: #d9f3ff; display: flex; font-family: "DM Mono", monospace; font-size: .76rem; font-weight: 500; height: 2.6rem; justify-content: center; width: 2.6rem; }
+      .project-number { color: rgba(186, 230, 253, .62); font-family: "DM Mono", monospace; font-size: .75rem; letter-spacing: .1em; }
+      .tag { background: rgba(125, 211, 252, .1); border: 1px solid rgba(125, 211, 252, .2); border-radius: 999px; color: #cfeeff; display: inline-block; font-family: "DM Mono", monospace; font-size: .68rem; padding: .3rem .5rem; }
+      .certificate-image { aspect-ratio: 16 / 9; border-bottom: 1px solid var(--line); object-fit: cover; object-position: top; width: 100%; }
+      .timeline-line { background: linear-gradient(#38bdf8, #a78bfa, transparent); bottom: 0; left: 1rem; position: absolute; top: 2.4rem; width: 1px; }
+      .timeline-dot { background: #020617; border: 3px solid var(--accent); border-radius: 999px; box-shadow: 0 0 0 6px rgba(56, 189, 248, .1); height: 1.1rem; left: .48rem; position: absolute; top: 1.7rem; width: 1.1rem; }
+      .resume-page { background: white; border: 1px solid rgba(148, 163, 184, .34); border-radius: .7rem; box-shadow: 0 22px 58px rgba(0, 0, 0, .3); display: block; height: auto; width: 100%; }
+
+      /* Book-style section navigation. The main container supplies the 3D
+         perspective; JavaScript turns the outgoing and incoming sections. */
+      .section-flip-perspective { perspective: 1200px; transform-style: preserve-3d; }
+      .section-shell { backface-visibility: hidden; transform-style: preserve-3d; }
+      .section-shell.page-turning { will-change: transform, opacity; }
+      .section-shell.page-turning::after { background: linear-gradient(90deg, rgba(8, 17, 31, .38), rgba(8, 17, 31, .1) 24%, transparent 58%, rgba(8, 17, 31, .08)); content: ""; inset: 0; pointer-events: none; position: absolute; z-index: 5; }
+      .section-shell.page-turn-backward::after { transform: scaleX(-1); }
+      .section-shell.page-turn-out-forward { animation: page-turn-out-forward 340ms ease-in-out forwards; transform-origin: left center; }
+      .section-shell.page-turn-out-backward { animation: page-turn-out-backward 340ms ease-in-out forwards; transform-origin: right center; }
+      .section-shell.page-turn-in-forward { animation: page-turn-in-forward 340ms ease-in-out both; transform-origin: right center; }
+      .section-shell.page-turn-in-backward { animation: page-turn-in-backward 340ms ease-in-out both; transform-origin: left center; }
+      .section-shell.page-fade-out { animation: page-fade-out 180ms ease-in-out forwards; }
+      .section-shell.page-fade-in { animation: page-fade-in 180ms ease-in-out both; }
+      @keyframes page-turn-out-forward { from { opacity: 1; transform: rotateY(0deg); } to { opacity: 0; transform: rotateY(-90deg); } }
+      @keyframes page-turn-out-backward { from { opacity: 1; transform: rotateY(0deg); } to { opacity: 0; transform: rotateY(90deg); } }
+      @keyframes page-turn-in-forward { from { opacity: 0; transform: rotateY(90deg); } to { opacity: 1; transform: rotateY(0deg); } }
+      @keyframes page-turn-in-backward { from { opacity: 0; transform: rotateY(-90deg); } to { opacity: 1; transform: rotateY(0deg); } }
+      @keyframes page-fade-out { from { opacity: 1; } to { opacity: 0; } }
+      @keyframes page-fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+      /* Lightweight 3D depth: mouse-only and layered so it does not compete
+         with the section reveal and page-flip transforms. */
+      #hero { --hero-parallax-x: 0px; --hero-parallax-y: 0px; }
+      #hero::before { transition: transform .32s ease-out; transform: translate3d(var(--hero-parallax-x), var(--hero-parallax-y), 0); }
+      .hero-depth-stage { perspective: 900px; position: relative; transform-style: preserve-3d; transition: transform .18s ease-out, filter .18s ease-out; will-change: transform; }
+      .hero-depth-stage::after { background: radial-gradient(circle at 30% 18%, rgba(255, 255, 255, .44), transparent 34%); border-radius: 999px; content: ""; inset: 3% 10% 24%; opacity: .52; pointer-events: none; position: absolute; transform: translateZ(52px); }
+      .hero-depth-stage .hero-orb { transform: translateZ(32px); }
+      .hero-depth-stage .glass { transform: translateX(-50%) translateZ(64px); }
+      .tilt-3d-card { transform-style: preserve-3d; will-change: transform; }
+      .tilt-3d-card > * { transform: translateZ(14px); }
+
+      .motion-toggle { align-items: center; background: rgba(15, 23, 42, .78); border: 1px solid rgba(125, 211, 252, .34); border-radius: 999px; bottom: 1rem; box-shadow: 0 12px 28px rgba(0, 0, 0, .22); color: #e0f2fe; cursor: pointer; display: inline-flex; font-family: "DM Mono", monospace; font-size: .67rem; font-weight: 700; letter-spacing: .04em; padding: .7rem .85rem; position: fixed; right: 1rem; transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease; z-index: 120; }
+      .motion-toggle:hover, .motion-toggle:focus-visible { border-color: #bae6fd; box-shadow: 0 15px 34px rgba(56, 189, 248, .22); outline: none; transform: translateY(-2px) scale(1.03); }
+      html[data-motion="expressive"] .motion-toggle { box-shadow: 0 0 0 4px rgba(56, 189, 248, .08), 0 15px 34px rgba(56, 189, 248, .26); }
+      html[data-motion="calm"] .hero-orb { animation-duration: 14s; }
+      html[data-motion="calm"] .status-dot { animation-duration: 3s; }
+      html[data-motion="off"] { scroll-behavior: auto; scroll-snap-type: none; }
+      html[data-motion="off"] *, html[data-motion="off"] *::before, html[data-motion="off"] *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; }
+      html[data-motion="off"] .js .reveal { opacity: 1 !important; transform: none !important; }
+
+      .js .reveal { will-change: opacity, transform; }
+      @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+      @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .55; transform: scale(1.35); } }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; scroll-snap-type: none; }
+        *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; }
+        .js .reveal { opacity: 1 !important; transform: none !important; }
+        .section-shell { transform: none !important; }
+        #hero::before, .hero-depth-stage, .tilt-3d-card { transform: none !important; }
+      }
+      @media (max-width: 768px) {
+        html { scroll-snap-type: y proximity; }
+        .section-shell.page-turn-out-forward, .section-shell.page-turn-out-backward, .section-shell.page-turn-in-forward, .section-shell.page-turn-in-backward { animation: none; }
+        #hero::before, .hero-depth-stage, .tilt-3d-card { transform: none !important; }
+      }
+      @media (hover: none), (pointer: coarse) {
+        #hero::before, .hero-depth-stage, .tilt-3d-card { transform: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div aria-live="polite" class="fixed inset-0 z-[200] grid place-items-center bg-slate-950 transition-opacity duration-500 ease-out" id="loading-screen" role="status">
+      <div class="text-center"><div class="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-2xl border border-sky-200/30 bg-sky-300/10 font-bold text-sky-200">MA</div><p class="mono text-xs tracking-[.24em] text-slate-300">LOADING PORTFOLIO</p></div>
+    </div>
+    <div aria-hidden="true" class="scroll-progress"><span id="progress-bar"></span></div>
+    <button aria-label="Change animation level" class="motion-toggle" id="motion-toggle" type="button">Motion: Balanced</button>
+    <nav aria-label="Primary navigation" class="top-nav fixed inset-x-0 top-0 z-50">
+      <div class="mx-auto flex max-w-7xl items-center gap-3 overflow-x-auto px-4 py-3 lg:px-8">
+        <a class="mr-2 flex shrink-0 items-center gap-2 font-extrabold text-slate-100" data-page-flip href="#hero"><span class="grid h-8 w-8 place-items-center rounded-lg bg-sky-300 text-xs text-slate-950">MA</span> Muhammad Ayan</a>
+        <div class="ml-auto flex items-center gap-1">
+          <a class="nav-link active transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-lg" data-nav="hero" data-page-flip href="#hero">Home</a>
+          <a class="nav-link transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-lg" data-nav="about" data-page-flip href="#about">About</a>
+          <a class="nav-link transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-lg" data-nav="skills" data-page-flip href="#skills">Skills</a>
+          <a class="nav-link transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-lg" data-nav="projects" data-page-flip href="#projects">Projects</a>
+          <a class="nav-link transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-lg" data-nav="experience" data-page-flip href="#experience">Experience</a>
+          <a class="nav-link transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-lg" data-nav="certificates" data-page-flip href="#certificates">Certificates</a>
+          <a class="nav-link transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-lg" data-nav="resume" data-page-flip href="#resume">Resume</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="section-flip-perspective" id="section-flip-stage">
+    <main class="opacity-0 transition-opacity duration-700 ease-out" id="portfolio-content">
+      <section class="section-shell snap-section reveal opacity-0 translate-y-10 transition-all duration-700 ease-out flex items-center pt-20" id="hero">
+        <div class="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 py-16 lg:grid-cols-[1.15fr_.85fr] lg:px-8">
+          <div>
+            <div class="reveal inline-flex items-center gap-2 rounded-full border border-emerald-300/25 bg-emerald-300/10 px-3 py-2 text-xs font-bold text-emerald-200"><span class="status-dot"></span> Available for internships &amp; collaborations</div>
+            <p class="section-label reveal mt-8">Islamabad, Pakistan</p>
+            <h1 class="reveal mt-4 max-w-3xl text-5xl font-extrabold leading-[.96] tracking-[-.075em] text-slate-50 sm:text-7xl">Muhammad <span class="text-sky-300">Ayan</span></h1>
+            <p class="reveal mt-6 max-w-2xl text-xl font-semibold text-slate-200 sm:text-2xl">Python Developer &amp; AI Automation Engineer</p>
+            <p class="reveal mt-4 max-w-xl text-base leading-8 text-slate-400">Building secure, automated systems with Python and AI. Growing toward AI security through backend engineering, workflow automation, and reliable data systems.</p>
+            <div class="reveal mt-7 flex flex-wrap gap-2">
+              <span class="chip">Python Developer</span><span class="chip">AI Automation</span><span class="chip">AI Security · Aspiring</span>
+            </div>
+            <div class="reveal mt-8 flex flex-wrap gap-3">
+              <a class="primary-button transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl" href="mailto:muhammadayantoorie@gmail.com">Email Muhammad <span>→</span></a>
+              <a class="secondary-button transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl" data-page-flip href="#projects">View projects</a>
+            </div>
+            <div class="reveal mt-8 flex flex-wrap gap-x-5 gap-y-3 text-sm font-semibold text-slate-300">
+              <a class="transition hover:text-sky-200" href="https://github.com/muhammadayantoorie-creator" rel="noreferrer" target="_blank">GitHub ↗</a>
+              <a class="transition hover:text-sky-200" href="https://www.linkedin.com/in/muhammad-ayan-84b605380/" rel="noreferrer" target="_blank">LinkedIn ↗</a>
+              <a class="transition hover:text-sky-200" href="https://wa.me/923029153302" rel="noreferrer" target="_blank">WhatsApp ↗</a>
+            </div>
+          </div>
+          <div class="reveal relative mx-auto grid place-items-center">
+            <div class="hero-depth-stage" data-hero-depth>
+              <div class="hero-orb relative rounded-full p-4 sm:p-6"><img alt="Muhammad Ayan" class="profile-image" src="./src/Assets/muhammad-ayan.jpeg" /></div>
+              <div class="glass absolute -bottom-5 left-1/2 flex w-max -translate-x-1/2 items-center gap-3 rounded-xl px-4 py-3 text-xs text-slate-300"><span class="status-dot"></span><span><b class="text-slate-100">Focus:</b> Python + AI Automation</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell snap-section reveal opacity-0 translate-y-10 transition-all duration-700 ease-out flex items-center py-24" id="about">
+        <div class="mx-auto w-full max-w-6xl px-5 lg:px-8">
+          <p class="section-label reveal">01 / About</p>
+          <h2 class="section-title reveal mt-4">Engineering systems that are <em>useful and trustworthy.</em></h2>
+          <div class="mt-12 grid gap-6 lg:grid-cols-[1.2fr_.8fr]">
+            <article class="glass reveal rounded-2xl p-7 sm:p-9"><p class="text-lg leading-8 text-slate-300">I’m Muhammad Ayan, a Python Developer and AI Automation Engineer based in Islamabad. I build backend systems, workflow automations, APIs, and data pipelines that make work faster and more reliable.</p><p class="mt-5 leading-8 text-slate-400">I am studying <b class="font-semibold text-slate-200">BS Artificial Intelligence</b> at the National University of Technology, Islamabad, graduating in 2029. My long-term goal is to become an AI Security Engineer who helps make intelligent systems safe, robust, and trustworthy.</p></article>
+            <div class="stagger-grid grid gap-4">
+              <div class="info-card reveal p-5"><p class="mono text-xs text-sky-300">NOW</p><h3 class="mt-2 font-bold text-white">Backend &amp; AI automation</h3><p class="mt-2 text-sm leading-6 text-slate-400">Python APIs, agent workflows, integrations, and data systems.</p></div>
+              <div class="info-card reveal p-5"><p class="mono text-xs text-violet-300">NEXT</p><h3 class="mt-2 font-bold text-white">AI Security Engineering</h3><p class="mt-2 text-sm leading-6 text-slate-400">Secure AI systems, safe data pipelines, and reliable deployment practices.</p></div>
+              <div class="info-card reveal p-5"><p class="mono text-xs text-emerald-300">OUTSIDE WORK</p><h3 class="mt-2 font-bold text-white">Always learning</h3><p class="mt-2 text-sm leading-6 text-slate-400">Cricket, technology and security books, gardening, and side projects.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell snap-section reveal opacity-0 translate-y-10 transition-all duration-700 ease-out flex items-center py-24" id="skills">
+        <div class="mx-auto w-full max-w-6xl px-5 lg:px-8">
+          <p class="section-label reveal">02 / Skills</p>
+          <h2 class="section-title reveal mt-4">A practical toolkit for <em>building and securing.</em></h2>
+          <div class="stagger-grid mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" id="skills-grid"></div>
+        </div>
+      </section>
+
+      <section class="section-shell snap-section reveal opacity-0 translate-y-10 transition-all duration-700 ease-out flex items-center py-24" id="projects">
+        <div class="mx-auto w-full max-w-6xl px-5 lg:px-8">
+          <p class="section-label reveal">03 / Projects</p>
+          <h2 class="section-title reveal mt-4">Selected work in <em>AI and automation.</em></h2>
+          <div class="stagger-grid mt-12 grid gap-5 md:grid-cols-2" id="projects-grid"></div>
+        </div>
+      </section>
+
+      <section class="section-shell snap-section reveal opacity-0 translate-y-10 transition-all duration-700 ease-out flex items-center py-24" id="experience">
+        <div class="mx-auto w-full max-w-5xl px-5 lg:px-8">
+          <p class="section-label reveal">04 / Experience &amp; Education</p>
+          <h2 class="section-title reveal mt-4">Learning in public, <em>building in practice.</em></h2>
+          <div class="relative mt-12 space-y-5 pl-10 stagger-grid" id="timeline-grid"><span aria-hidden="true" class="timeline-line"></span></div>
+        </div>
+      </section>
+
+      <section class="section-shell snap-section reveal opacity-0 translate-y-10 transition-all duration-700 ease-out flex items-center py-24" id="certificates">
+        <div class="mx-auto w-full max-w-6xl px-5 lg:px-8">
+          <p class="section-label reveal">05 / Certificates</p>
+          <h2 class="section-title reveal mt-4">Learning milestones and <em>technical achievements.</em></h2>
+          <div class="stagger-grid mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" id="certificates-grid"></div>
+        </div>
+      </section>
+
+      <section class="section-shell snap-section reveal opacity-0 translate-y-10 transition-all duration-700 ease-out flex items-center py-24" id="resume">
+        <div class="mx-auto w-full max-w-5xl px-5 lg:px-8">
+          <p class="section-label reveal">06 / Resume</p>
+          <div class="reveal mt-4 flex flex-wrap items-end justify-between gap-6"><div><h2 class="section-title">Ready for the next <em>engineering challenge.</em></h2><p class="mt-4 max-w-xl leading-7 text-slate-400">Download my complete resume or review both pages below.</p></div><a class="primary-button transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl" download="Muhammad_Ayan_Resume.pdf" href="./public/download/Muhammad_Ayan_Resume.pdf">Download resume ↓</a></div>
+          <div class="stagger-grid mt-12 space-y-8"><img alt="Muhammad Ayan resume, page 1" class="resume-page reveal" loading="lazy" src="./public/resume-pages/muhammad-ayan-resume-1.png" /><img alt="Muhammad Ayan resume, page 2" class="resume-page reveal" loading="lazy" src="./public/resume-pages/muhammad-ayan-resume-2.png" /></div>
+        </div>
+      </section>
+    </main>
+    </div>
+
+    <footer class="border-t border-slate-800 bg-slate-950 px-5 py-10 text-center text-sm text-slate-500"><p>Designed and developed by Muhammad Ayan · © <span id="year"></span></p></footer>
+
+    <script>
+      const motionProfiles = {
+        expressive: { label: "Expressive", revealDuration: 820, stagger: 130, threshold: 0.11 },
+        balanced: { label: "Balanced", revealDuration: 700, stagger: 100, threshold: 0.14 },
+        calm: { label: "Calm", revealDuration: 420, stagger: 60, threshold: 0.18 },
+        off: { label: "Off", revealDuration: 0, stagger: 0, threshold: 0 },
+      };
+      const motionOrder = ["expressive", "balanced", "calm", "off"];
+      const motionToggle = document.querySelector("#motion-toggle");
+      let motionPreset = "balanced";
+
+      try {
+        const savedMotion = window.localStorage.getItem("ayan-portfolio-scroll-motion");
+        if (motionProfiles[savedMotion]) motionPreset = savedMotion;
+      } catch {
+        // The selected mode still works during this visit if storage is unavailable.
+      }
+
+      const applyMotionPreset = (nextPreset) => {
+        motionPreset = motionProfiles[nextPreset] ? nextPreset : "balanced";
+        document.documentElement.dataset.motion = motionPreset;
+        motionToggle.textContent = `Motion: ${motionProfiles[motionPreset].label}`;
+        motionToggle.setAttribute("aria-label", `Animation level: ${motionProfiles[motionPreset].label}. Activate to change.`);
+        try {
+          window.localStorage.setItem("ayan-portfolio-scroll-motion", motionPreset);
+        } catch {
+          // Storage is optional for this control.
+        }
+      };
+
+      applyMotionPreset(motionPreset);
+
+      // Explicit navigation uses a two-stage book flip. It does not run while
+      // visitors read/scroll naturally, so the portfolio remains comfortable.
+      const flipDuration = 340;
+      let activeSectionId = "hero";
+      let isSectionFlipping = false;
+
+      const getSectionScrollTop = (target) => {
+        const navigationHeight = document.querySelector(".top-nav")?.getBoundingClientRect().height || 88;
+        return Math.max(0, target.getBoundingClientRect().top + window.scrollY - navigationHeight);
+      };
+
+      const jumpToSection = (target, scrollTop = getSectionScrollTop(target)) => {
+        const previousScrollBehavior = document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = "auto";
+        window.scrollTo({ top: scrollTop, behavior: "auto" });
+        document.documentElement.style.scrollBehavior = previousScrollBehavior;
+      };
+
+      const clearTurnClasses = (section) => section?.classList.remove(
+        "page-turning",
+        "page-turn-backward",
+        "page-turn-out-forward",
+        "page-turn-out-backward",
+        "page-turn-in-forward",
+        "page-turn-in-backward",
+        "page-fade-out",
+        "page-fade-in"
+      );
+
+      const prepareIncomingSection = (section) => {
+        section.classList.remove("opacity-0", "translate-y-10", "translate-y-6");
+        section.classList.add("opacity-100", "translate-y-0", "is-visible");
+      };
+
+      const navigateWithPageFlip = (sectionId) => {
+        const incoming = document.getElementById(sectionId);
+        const outgoing = document.getElementById(activeSectionId) || document.querySelector("main section[id]");
+        if (!incoming || !outgoing || isSectionFlipping) return;
+
+        const targetScrollTop = getSectionScrollTop(incoming);
+
+        if (incoming === outgoing) {
+          window.history.pushState(null, "", `#${sectionId}`);
+          jumpToSection(incoming, targetScrollTop);
+          return;
+        }
+
+        const currentPosition = window.scrollY;
+        const direction = targetScrollTop > currentPosition ? "forward" : "backward";
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const simpleFade = window.innerWidth <= 768;
+
+        if (motionPreset === "off" || prefersReducedMotion) {
+          window.history.pushState(null, "", `#${sectionId}`);
+          jumpToSection(incoming, targetScrollTop);
+          return;
+        }
+
+        isSectionFlipping = true;
+        outgoing.setAttribute("aria-busy", "true");
+
+        if (simpleFade) {
+          outgoing.classList.add("page-turning", "page-fade-out");
+          window.setTimeout(() => {
+            prepareIncomingSection(incoming);
+            incoming.classList.add("page-turning", "page-fade-in");
+            window.history.pushState(null, "", `#${sectionId}`);
+            jumpToSection(incoming, targetScrollTop);
+          }, 180);
+          window.setTimeout(() => {
+            clearTurnClasses(outgoing);
+            clearTurnClasses(incoming);
+            outgoing.removeAttribute("aria-busy");
+            isSectionFlipping = false;
+          }, 390);
+          return;
+        }
+
+        const outgoingClass = direction === "forward" ? "page-turn-out-forward" : "page-turn-out-backward";
+        const incomingClass = direction === "forward" ? "page-turn-in-forward" : "page-turn-in-backward";
+        outgoing.classList.add("page-turning", outgoingClass);
+        if (direction === "backward") outgoing.classList.add("page-turn-backward");
+
+        window.setTimeout(() => {
+          // At 90 degrees the current page is invisible; swap sections here.
+          prepareIncomingSection(incoming);
+          incoming.classList.add("page-turning", incomingClass);
+          if (direction === "backward") incoming.classList.add("page-turn-backward");
+          window.history.pushState(null, "", `#${sectionId}`);
+          jumpToSection(incoming, targetScrollTop);
+        }, flipDuration);
+
+        window.setTimeout(() => {
+          clearTurnClasses(outgoing);
+          clearTurnClasses(incoming);
+          outgoing.removeAttribute("aria-busy");
+          isSectionFlipping = false;
+        }, flipDuration * 2 + 40);
+      };
+
+      window.navigateWithPageFlip = navigateWithPageFlip;
+
+      document.addEventListener("click", (event) => {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        const element = event.target;
+        if (!(element instanceof Element)) return;
+
+        const anchor = element.closest("a[data-page-flip][href^='#']");
+        const href = anchor?.getAttribute("href");
+        if (!href || href === "#") return;
+
+        const sectionId = href.slice(1);
+        if (!document.getElementById(sectionId)) return;
+        event.preventDefault();
+        navigateWithPageFlip(sectionId);
+      });
+
+      const skills = [
+        ["Languages", "Python · JavaScript · SQL · Bash", "PY"],
+        ["Backend & API", "FastAPI · Django · Flask · REST APIs", "API"],
+        ["Databases", "PostgreSQL · MySQL · Redis", "DB"],
+        ["AI & Automation", "OpenAI API · LangChain · n8n · Selenium", "AI"],
+        ["Data", "Pandas · NumPy · Scikit-learn · LLM orchestration", "DATA"],
+        ["Security", "Linux · OWASP Top 10 · Docker · secure coding", "SEC"],
+        ["Tools", "Git/GitHub · VS Code · Postman · Jupyter · CLI", "DEV"],
+        ["Direction", "Backend engineering · AI automation · AI security", "NEXT"],
+      ];
+      const projects = [
+        ["01", "Calendar Conflict Resolver Agent", "An AI agent that analyzes availability, resolves scheduling conflicts, and suggests optimal meeting times.", ["Python", "AI Agent", "Automation"], "https://github.com/muhammadayantoorie-creator/Calender_Conflict_Resolver_Agent"],
+        ["02", "WhatsApp Notification Router AI Agent", "An AI agent that routes and prioritizes WhatsApp notifications so important messages get attention.", ["TypeScript", "AI Agent", "Automation"], "https://github.com/muhammadayantoorie-creator/Whatsapp_Notification_router_AI_Agent"],
+        ["03", "MCP-Nexus", "A hub for managing AI-model interactions through the Model Context Protocol.", ["Python", "MCP", "AI Infrastructure"], "https://github.com/muhammadayantoorie-creator/MCP-Nexus"],
+        ["04", "ScarpeHub", "A web-scraping toolkit for collecting and aggregating structured data from multiple sources.", ["Python", "Selenium", "Data Pipeline"], "https://github.com/muhammadayantoorie-creator/ScarpeHub"],
+      ];
+      const experiences = [
+        ["2026 — Present", "Automation Engineer Intern", "DevelopersHub Corporation, Islamabad", "Building AI automation pipelines, Python solutions, AI-agent integrations, and secure APIs."],
+        ["2026 — Present", "Founder & Lead Developer", "ERAEDU, NIC Islamabad", "Leading an ed-tech startup with a Python/FastAPI backend, product delivery, and team leadership."],
+        ["2025 — 2029", "BS Artificial Intelligence", "National University of Technology, Islamabad", "Focus on Python, machine learning, backend engineering, AI automation, and AI security."],
+        ["Active", "Hackathons & Technical Challenges", "Antigravity National · BANO Qabil Pakistan · HackerRank", "Applying AI, Python, and automation skills through competitive technical challenges."],
+        ["Present", "AWS Student Builder Group", "Active member", "Hands-on learning in cloud, backend systems, AI automation, and secure engineering."],
+      ];
+      const certificates = [
+        ["AWS Student Builder Group — DEV WEEKEND", "Active participation at Quaid-i-Azam University.", "aws-student-builder-group.jpeg"],
+        ["HackerRank Orchestrate", "Built and deployed an AI agent. Final rank #1865 / 1,983.", "hackerrank-orchestrate.jpeg"],
+        ["Guide to Vibe Coding in Windsurf", "Certificate of completion.", "vibe-coding-windsurf.png"],
+        ["Build Website With AI", "Certificate of completion.", "build-website-ai.png"],
+        ["Introduction to AI", "Google / Coursera certificate.", "introduction-ai.png"],
+        ["Android App Development", "Certificate of completion.", "android-development.png"],
+        ["Introduction to Prompt Engineering", "Certificate of completion.", "prompt-engineering.png"],
+        ["Loop Engineering", "Certificate of completion.", "loop-engineering.png"],
+        ["Claude Code: The Coding Assistant", "Certificate of completion.", "claude-coding-assistant.png"],
+        ["n8n Automation", "A complete guide to the automation tool.", "n8n-automation.png"],
+        ["ABC of Coding to Build AI Agents", "Certificate of completion.", "abc-ai-agents.png"],
+        ["Building Intelligent Chatbots Using AI", "Certificate of completion.", "intelligent-chatbots.png"],
+        ["Resume Review Agentic System with CrewAI", "Certificate of completion.", "resume-review-crewai.png"],
+        ["Building Data Analyst AI Agent", "Certificate of completion.", "data-analyst-agent.png"],
+        ["Claude Code 101", "Anthropic Education certificate.", "claude-code-101.png"],
+        ["Claude Platform 101", "Anthropic Education certificate.", "claude-platform-101.png"],
+        ["AI Fluency for K-12 Educators", "Anthropic / Teach For America certificate.", "ai-fluency.png"],
+      ];
+
+      document.querySelector("#skills-grid").innerHTML = skills.map(([title, detail, mark]) => `<article class="skill-card reveal p-5"><div class="skill-icon">${mark}</div><h3 class="mt-5 font-bold text-slate-100">${title}</h3><p class="mt-2 text-sm leading-6 text-slate-400">${detail}</p></article>`).join("");
+      document.querySelector("#projects-grid").innerHTML = projects.map(([number, title, description, tags, link]) => `<article class="project-card reveal p-6 transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-2xl"><p class="project-number">PROJECT / ${number}</p><h3 class="mt-4 text-xl font-bold text-slate-100">${title}</h3><p class="mt-3 leading-7 text-slate-400">${description}</p><div class="mt-5 flex flex-wrap gap-2">${tags.map(tag => `<span class="tag">${tag}</span>`).join("")}</div><a class="mt-6 inline-flex text-sm font-bold text-sky-300 transition-all duration-300 ease-out hover:scale-[1.03] hover:text-sky-100" href="${link}" rel="noreferrer" target="_blank">View source code ↗</a></article>`).join("");
+      document.querySelector("#timeline-grid").innerHTML += experiences.map(([date, title, organization, description]) => `<article class="timeline-card reveal relative p-6"><span aria-hidden="true" class="timeline-dot"></span><p class="mono text-xs text-sky-300">${date}</p><h3 class="mt-3 text-lg font-bold text-slate-100">${title}</h3><p class="mt-1 text-sm font-semibold text-slate-300">${organization}</p><p class="mt-3 text-sm leading-6 text-slate-400">${description}</p></article>`).join("");
+      document.querySelector("#certificates-grid").innerHTML = certificates.map(([title, description, image]) => `<article class="certificate-card reveal"><img alt="${title}" class="certificate-image" loading="lazy" src="./public/certificates/${image}"><div class="p-5"><h3 class="font-bold leading-6 text-slate-100">${title}</h3><p class="mt-2 text-sm leading-6 text-slate-400">${description}</p></div></article>`).join("");
+
+      const canUse3DDepth = () => (
+        motionPreset !== "off" &&
+        window.innerWidth > 768 &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+        window.matchMedia("(hover: hover) and (pointer: fine)").matches
+      );
+
+      const attachCardTilt = (card) => {
+        if (card.dataset.tiltAttached) return;
+        card.dataset.tiltAttached = "true";
+        card.classList.add("tilt-3d-card");
+        let frameId = null;
+
+        const resetCard = () => {
+          if (frameId) window.cancelAnimationFrame(frameId);
+          frameId = null;
+          card.style.removeProperty("box-shadow");
+          card.style.removeProperty("transform");
+        };
+
+        card.addEventListener("pointermove", (event) => {
+          if (!canUse3DDepth() || event.pointerType === "touch") return;
+          const bounds = card.getBoundingClientRect();
+          const horizontal = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+          const vertical = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+          if (frameId) window.cancelAnimationFrame(frameId);
+          frameId = window.requestAnimationFrame(() => {
+            card.style.transform = `perspective(900px) rotateX(${-vertical * 3}deg) rotateY(${horizontal * 3}deg) translateY(-4px) scale(1.015)`;
+            card.style.boxShadow = "0 20px 42px rgba(0, 0, 0, .3), 0 0 28px rgba(125, 211, 252, .14)";
+            frameId = null;
+          });
+        });
+        card.addEventListener("pointerleave", resetCard);
+        card.addEventListener("pointercancel", resetCard);
+      };
+
+      const heroDepthStage = document.querySelector("[data-hero-depth]");
+      if (heroDepthStage) {
+        let heroFrameId = null;
+        const resetHeroDepth = () => {
+          if (heroFrameId) window.cancelAnimationFrame(heroFrameId);
+          heroFrameId = null;
+          heroDepthStage.style.removeProperty("filter");
+          heroDepthStage.style.removeProperty("transform");
+          document.querySelector("#hero")?.style.removeProperty("--hero-parallax-x");
+          document.querySelector("#hero")?.style.removeProperty("--hero-parallax-y");
+        };
+
+        heroDepthStage.addEventListener("pointermove", (event) => {
+          if (!canUse3DDepth() || event.pointerType === "touch") return;
+          const bounds = heroDepthStage.getBoundingClientRect();
+          const horizontal = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+          const vertical = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+          if (heroFrameId) window.cancelAnimationFrame(heroFrameId);
+          heroFrameId = window.requestAnimationFrame(() => {
+            heroDepthStage.style.transform = `perspective(900px) rotateX(${-vertical * 4}deg) rotateY(${horizontal * 4}deg)`;
+            heroDepthStage.style.filter = "drop-shadow(0 24px 36px rgba(8, 17, 31, .24))";
+            const hero = document.querySelector("#hero");
+            hero?.style.setProperty("--hero-parallax-x", `${horizontal * -11}px`);
+            hero?.style.setProperty("--hero-parallax-y", `${vertical * -9}px`);
+            heroFrameId = null;
+          });
+        });
+        heroDepthStage.addEventListener("pointerleave", resetHeroDepth);
+        heroDepthStage.addEventListener("pointercancel", resetHeroDepth);
+      }
+
+      document.querySelectorAll(".info-card, .project-card, .skill-card, .timeline-card, .certificate-card").forEach(attachCardTilt);
+
+      const reset3DDepth = () => {
+        document.querySelectorAll(".info-card, .project-card, .skill-card, .timeline-card, .certificate-card").forEach((card) => {
+          card.style.removeProperty("box-shadow");
+          card.style.removeProperty("transform");
+        });
+        heroDepthStage?.style.removeProperty("filter");
+        heroDepthStage?.style.removeProperty("transform");
+        document.querySelector("#hero")?.style.removeProperty("--hero-parallax-x");
+        document.querySelector("#hero")?.style.removeProperty("--hero-parallax-y");
+      };
+
+      const revealStartClasses = ["opacity-0", "translate-y-6", "transition-all", "duration-700", "ease-out"];
+      const revealEndClasses = ["opacity-100", "translate-y-0"];
+      const revealItems = [...document.querySelectorAll(".reveal")];
+
+      const revealProfile = () => motionProfiles[motionPreset];
+      const updateRevealTiming = () => {
+        revealItems.forEach((item) => {
+          item.style.transitionDuration = `${revealProfile().revealDuration}ms`;
+        });
+      };
+      const showAllReveals = () => {
+        revealItems.forEach((item) => {
+          item.classList.remove("opacity-0", "-translate-x-10", "translate-y-6", "translate-y-10");
+          item.classList.add(...revealEndClasses, "is-visible");
+          item.style.transitionDelay = "";
+        });
+      };
+
+      revealItems.forEach((item) => {
+        if (motionPreset === "off") {
+          item.classList.remove("opacity-0", "-translate-x-10", "translate-y-6", "translate-y-10");
+          item.classList.add(...revealEndClasses, "is-visible");
+        } else {
+          item.classList.remove("translate-y-10");
+          item.classList.add(...revealStartClasses);
+        }
+      });
+      updateRevealTiming();
+      document.querySelectorAll(".stagger-grid").forEach((grid) => {
+        grid.querySelectorAll(".reveal").forEach((item, index) => {
+          item.style.transitionDelay = `${(index % 5) * revealProfile().stagger}ms`;
+        });
+      });
+      document.querySelectorAll("#projects-grid .project-card").forEach((card, index) => {
+        card.style.transitionDelay = `${index * revealProfile().stagger}ms`;
+      });
+      document.querySelectorAll("#hero .reveal").forEach((item, index) => {
+        item.style.transitionDelay = `${index * revealProfile().stagger}ms`;
+      });
+
+      const beginScrollReveals = () => {
+        if (motionPreset === "off") {
+          showAllReveals();
+          return;
+        }
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.remove("opacity-0", "-translate-x-10", "translate-y-6", "translate-y-10");
+              entry.target.classList.add(...revealEndClasses, "is-visible");
+              const clearRevealDelay = (event) => {
+                if (event.target === entry.target && event.propertyName === "opacity") {
+                  entry.target.style.transitionDelay = "";
+                  entry.target.removeEventListener("transitionend", clearRevealDelay);
+                }
+              };
+              entry.target.addEventListener("transitionend", clearRevealDelay);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: revealProfile().threshold, rootMargin: "0px 0px -8% 0px" });
+        revealItems.forEach((item) => revealObserver.observe(item));
+      };
+
+      motionToggle.addEventListener("click", () => {
+        const currentIndex = motionOrder.indexOf(motionPreset);
+        applyMotionPreset(motionOrder[(currentIndex + 1) % motionOrder.length]);
+        if (motionPreset === "off") {
+          showAllReveals();
+          reset3DDepth();
+        } else {
+          updateRevealTiming();
+        }
+      });
+
+      const progress = document.querySelector("#progress-bar");
+      let ticking = false;
+      const updateScrollProgress = () => {
+        ticking = false;
+        const maximum = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.transform = `scaleX(${maximum ? window.scrollY / maximum : 0})`;
+      };
+      window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(updateScrollProgress); } }, { passive: true });
+      window.addEventListener("resize", updateScrollProgress);
+      updateScrollProgress();
+
+      const navLinks = [...document.querySelectorAll("[data-nav]")];
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio).slice(0, 1).forEach((entry) => {
+          activeSectionId = entry.target.id;
+          navLinks.forEach((link) => link.classList.toggle("active", link.dataset.nav === entry.target.id));
+        });
+      }, { threshold: 0.42 });
+      document.querySelectorAll("main section[id]").forEach((section) => sectionObserver.observe(section));
+      document.querySelector("#year").textContent = new Date().getFullYear();
+
+      const startPortfolio = () => {
+        const loadingScreen = document.querySelector("#loading-screen");
+        const portfolioContent = document.querySelector("#portfolio-content");
+        loadingScreen.classList.add("opacity-0", "pointer-events-none");
+        portfolioContent.classList.remove("opacity-0");
+        portfolioContent.classList.add("opacity-100");
+        requestAnimationFrame(beginScrollReveals);
+        window.setTimeout(() => loadingScreen.remove(), 550);
+      };
+
+      if (document.readyState === "complete") {
+        window.setTimeout(startPortfolio, 1000);
+      } else {
+        window.addEventListener("load", () => window.setTimeout(startPortfolio, 1000), { once: true });
+      }
+    </script>
+  </body>
+</html>
