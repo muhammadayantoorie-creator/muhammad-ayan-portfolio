@@ -5081,3 +5081,47 @@ html[data-motion="off"] .profile-3d-halo--outer,
 html[data-motion="off"] .profile-3d-halo--inner {
   animation: none;
 }
+
+/* Desktop performance guardrails. These keep the same visual layers but make
+   them cheaper to composite on typical laptop screens. Mobile keeps its
+   existing lightweight rules above. */
+@media (min-width: 768px) and (max-width: 1440px), (min-width: 768px) and (max-height: 900px) {
+  .home-section {
+    background-attachment: scroll;
+  }
+
+  .home-section::before {
+    animation-duration: 34s;
+    filter: blur(22px);
+  }
+
+  .home-section::after {
+    animation-duration: 42s;
+  }
+
+  .hero-depth-field::before {
+    animation-duration: 30s;
+    filter: blur(18px);
+  }
+
+  .App::before {
+    animation-duration: 40s;
+    filter: blur(30px);
+  }
+
+  .cyber-profile-container {
+    animation-duration: 9s;
+  }
+
+  .spatial-orbit {
+    animation-duration: 24s;
+  }
+
+  .profile-3d-halo--outer {
+    animation-duration: 24s;
+  }
+
+  .profile-3d-halo--inner {
+    animation-duration: 18s;
+  }
+}

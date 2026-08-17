@@ -11,6 +11,11 @@ function Particle() {
 
   const isCalm = preset === "calm";
   const isExpressive = preset === "expressive";
+  const isLaptopViewport = typeof window !== "undefined"
+    && (window.innerWidth <= 1440 || window.innerHeight <= 900);
+  const particleCount = isLaptopViewport
+    ? (isExpressive ? 40 : (isCalm ? 24 : 32))
+    : (isExpressive ? 52 : (isCalm ? 30 : 40));
 
   return (
     <Particles
@@ -21,7 +26,7 @@ function Particle() {
         },
         particles: {
           number: {
-            value: isExpressive ? 64 : (isCalm ? 36 : 48),
+            value: particleCount,
             density: {
               enable: true,
               value_area: 1200,
@@ -100,7 +105,10 @@ function Particle() {
             }
           },
         },
-        retina_detect: true,
+        // A capped canvas keeps the desktop experience smooth on laptops while
+        // retaining the same ambient visual treatment.
+        fps_limit: isLaptopViewport ? 30 : 45,
+        retina_detect: !isLaptopViewport,
       }}
     />
   );
