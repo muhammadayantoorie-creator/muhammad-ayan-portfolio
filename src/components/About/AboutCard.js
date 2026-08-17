@@ -6,9 +6,9 @@ import { usePortfolioMotion } from "../Motion";
 
 const activities = [
   "Backend engineering and reliable API development",
-  "Python automation and AI-driven workflow integration",
+  "Python, FastAPI, and AI-driven workflow integration",
   "Data pipelines that make processes faster and more reliable",
-  "Exploring AI security, secure AI systems, and protected data pipelines",
+  "Exploring machine learning for cybersecurity, secure AI systems, and protected data pipelines",
   "Career goal: becoming an AI Security Engineer who builds trustworthy intelligent systems",
   "Building small Python and AI projects through hands-on experimentation",
   "Playing cricket, reading about technology and security, and growing vegetables at home",
@@ -28,7 +28,7 @@ function AboutCard() {
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
             I'm <span className="purple">Muhammad Ayan</span> — a{" "}
-            <b className="purple">Python Developer and AI Automation Engineer</b>{" "}
+            <b className="purple">BS Artificial Intelligence Student, Python &amp; FastAPI Developer, and aspiring AI Security Engineer</b>{" "}
             based in Islamabad, Pakistan. I focus on building backend systems,
             automating workflows, and integrating AI to make processes faster and
             more reliable. My strengths include Python programming, API development,

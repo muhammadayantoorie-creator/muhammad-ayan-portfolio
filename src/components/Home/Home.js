@@ -183,17 +183,17 @@ function Home() {
             <Col md={7} className="home-header hero-copy-column order-2 order-md-1">
               <HeroReveal className="cyber-badge" delay={0.18}>
                 <span className="badge-dot" />
-                Python Developer &amp; AI Automation Engineer · Islamabad, Pakistan
+                BS AI Student | Python &amp; FastAPI Developer | Islamabad, Pakistan
               </HeroReveal>
               <h1 className="cyber-tagline hero-welcome-heading">
                 <AnimatedHeroLine className="glitch-text hero-welcome-name" dataText="Hi, I'm Muhammad Ayan." delay={0.28} text="Hi, I'm Muhammad Ayan." />
-                <AnimatedHeroLine className="neon-green-text hero-welcome-role" delay={0.42} text="Python Developer & AI Automation Engineer." />
+                <AnimatedHeroLine className="neon-green-text hero-welcome-role" delay={0.42} text="Python & FastAPI Developer. Machine Learning for Cybersecurity." />
               </h1>
               <HeroReveal as="h2" className="heading-name hero-welcome-signature" delay={0.54} style={{ marginTop: "16px" }}>
                 Automate. Build. <strong className="main-name">Secure.</strong>
               </HeroReveal>
               <HeroReveal className="home-hero-typewriter" delay={0.62}><Type /></HeroReveal>
-              <HeroReveal as="p" className="tagline home-hero-tagline" delay={0.7}>Building secure, automated systems with Python and AI.</HeroReveal>
+              <HeroReveal as="p" className="tagline home-hero-tagline" delay={0.7}>Building secure backend systems, AI automation, and machine-learning solutions for cybersecurity.</HeroReveal>
               <HeroReveal className="home-hero-cta" delay={0.78}>
                 <motion.a
                   className="hero-primary-cta fm-button"
