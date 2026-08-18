@@ -6,10 +6,10 @@ import { Reveal } from "../Motion";
 import resumePdf from "../../Assets/muhammad-ayan-resume.pdf";
 
 const resumeFilename = "Muhammad_Ayan_Resume.pdf";
-// The imported file powers the on-page preview; the public file is used for
-// direct downloads so each control has a stable URL after deployment.
+// Use the same deployed asset for previewing and downloading so both resume
+// controls resolve to an identical, verified file on every screen size.
 const resumePreviewUrl = resumePdf;
-const resumeDownloadUrl = `${process.env.PUBLIC_URL}/download/${resumeFilename}`;
+const resumeDownloadUrl = resumePdf;
 
 pdfjs.GlobalWorkerOptions.workerSrc = `${process.env.PUBLIC_URL}/pdf.worker.min.js`;
 
