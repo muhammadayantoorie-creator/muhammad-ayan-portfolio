@@ -19,7 +19,7 @@ function About() {
             }}
           >
             <Reveal as="h1" style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
-              Know Who <strong className="purple">I'M</strong>
+              Who <strong className="purple">I Am</strong>
             </Reveal>
             <Reveal><Aboutcard /></Reveal>
           </Col>
@@ -32,7 +32,7 @@ function About() {
           </Col>
         </Row>
         <Reveal as="h1" className="project-heading">
-          Professional <strong className="purple">Skillset </strong>
+          Technical <strong className="purple">Skillset </strong>
         </Reveal>
 
         <Techstack />

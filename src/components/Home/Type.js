@@ -6,7 +6,7 @@ function Type() {
   const { preset, shouldReduceMotion } = usePortfolioMotion();
 
   if (shouldReduceMotion) {
-    return <span>Python &amp; FastAPI Developer</span>;
+    return <span>Python &amp; Generative AI Developer</span>;
   }
 
   const delayByPreset = {
@@ -20,7 +20,7 @@ function Type() {
       key={preset}
       options={{
         strings: [
-          "Python & FastAPI Developer",
+          "Python & Generative AI Developer",
           "Machine Learning for Cybersecurity",
           "Aspiring AI Security Engineer",
           "BS Artificial Intelligence Student",

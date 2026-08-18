@@ -112,7 +112,7 @@ function Certificates() {
           Certificates &amp; <strong className="purple">Achievements</strong>
         </Reveal>
         <Reveal as="p" style={{ color: "white" }}>
-          Learning milestones in AI, automation, software development, and cloud.
+          Learning milestones supporting my work in Python, Generative AI, AI agents, and automation—and my path toward ML for cybersecurity and AI security.
         </Reveal>
         {certificateRows.map((row, rowIndex) => (
           <motion.div

@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 import { usePortfolioMotion } from "../Motion";
 
 const activities = [
-  "Backend engineering and reliable API development",
-  "Python, FastAPI, and AI-driven workflow integration",
-  "Data pipelines that make processes faster and more reliable",
-  "Exploring machine learning for cybersecurity, secure AI systems, and protected data pipelines",
+  "Python web app development and reliable API design",
+  "Generative AI tools, AI-powered workflows, and practical automation",
+  "Machine-learning workflows for cybersecurity use cases",
+  "Exploring secure AI systems, responsible AI, and protected data pipelines",
   "Career goal: becoming an AI Security Engineer who builds trustworthy intelligent systems",
-  "Building small Python and AI projects through hands-on experimentation",
+  "Building Python, Generative AI, and cybersecurity projects through hands-on experimentation",
   "Playing cricket, reading about technology and security, and growing vegetables at home",
 ];
 
@@ -28,12 +28,11 @@ function AboutCard() {
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
             I'm <span className="purple">Muhammad Ayan</span> — a{" "}
-            <b className="purple">BS Artificial Intelligence Student, Python &amp; FastAPI Developer, and aspiring AI Security Engineer</b>{" "}
-            based in Islamabad, Pakistan. I focus on building backend systems,
-            automating workflows, and integrating AI to make processes faster and
-            more reliable. My strengths include Python programming, API development,
-            data pipelines, and designing automation solutions that reduce manual
-            work. I am currently pursuing a <b className="purple">BS in Artificial Intelligence</b>{" "}
+            <b className="purple">BS Artificial Intelligence Student, Python &amp; Generative AI Developer, and aspiring AI Security Engineer</b>{" "}
+            based in Islamabad, Pakistan. I focus on building Python web apps,
+            Generative AI tools, and machine-learning workflows for cybersecurity.
+            My interests include practical AI automation, reliable API development,
+            and designing intelligent systems that are useful and secure. I am currently pursuing a <b className="purple">BS in Artificial Intelligence</b>{" "}
             at the National University of Technology Islamabad, with expected graduation in 2029.
           </p>
           <motion.ul

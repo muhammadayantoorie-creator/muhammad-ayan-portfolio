@@ -12,7 +12,7 @@ const educationData = [
     organization: "National University of Technology, Islamabad",
     date: "2025 - 2029 (Expected)",
     description:
-      "Focus areas: Python, machine learning, backend engineering, AI automation, and AI security.",
+      "Focus areas: Python development, Generative AI, machine learning for cybersecurity, and AI security.",
   },
 ];
 
@@ -23,7 +23,7 @@ const experienceData = [
     organization: "DevelopersHub Corporation, Islamabad",
     date: "2026 - Present",
     description:
-      "Building AI automation pipelines, developing Python solutions, integrating AI agents into workflows, and designing secure APIs.",
+      "Building Python and Generative AI automation pipelines, integrating AI agents into workflows, and designing secure APIs.",
   },
   {
     type: "experience",
@@ -31,7 +31,7 @@ const experienceData = [
     organization: "ERAEDU, NIC Islamabad",
     date: "2026 - Present",
     description:
-      "Leading an ed-tech startup with a focus on Python and FastAPI backend development, product delivery, and team leadership.",
+      "Leading an ed-tech startup with a focus on Python web development, product delivery, and team leadership.",
   },
   {
     type: "experience",
@@ -39,7 +39,7 @@ const experienceData = [
     organization: "Antigravity National | BANO Qabil Pakistan | HackerRank",
     date: "Active participant",
     description:
-      "Applying problem-solving, Python, AI, and automation skills through competitive hackathons and technical challenges.",
+      "Applying Python, Generative AI, machine learning, and automation skills through competitive hackathons and technical challenges.",
   },
   {
     type: "experience",
@@ -47,7 +47,7 @@ const experienceData = [
     organization: "Active member",
     date: "Present",
     description:
-      "Continuing hands-on learning in cloud, backend systems, AI automation, and secure engineering practices.",
+      "Continuing hands-on learning in cloud, Python development, Generative AI, and secure engineering practices.",
   },
 ];
 
@@ -67,7 +67,7 @@ function Experiences() {
             <span className="purple">Experience &amp; Education</span>
           </h1>
           <p className="section-description">
-            My learning journey, professional work, and technical community involvement.
+            My education, professional work, and hands-on growth in Python, Generative AI, ML for cybersecurity, and AI security.
           </p>
         </Reveal>
 

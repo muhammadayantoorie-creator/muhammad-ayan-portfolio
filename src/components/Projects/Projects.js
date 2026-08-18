@@ -83,18 +83,18 @@ const projects = [
 const hiringStrengths = [
   {
     icon: <FaServer aria-hidden="true" />,
-    title: "Backend-minded",
-    text: "I design Python services, APIs, and data flows with reliability in mind.",
+    title: "Python builder",
+    text: "I build Python web apps, APIs, and data workflows with reliability in mind.",
   },
   {
     icon: <FaRobot aria-hidden="true" />,
-    title: "Automation-focused",
-    text: "I use AI and workflow automation to remove repetitive manual work.",
+    title: "Generative AI focused",
+    text: "I create AI agents and workflow automations that solve practical problems.",
   },
   {
     icon: <FaShieldAlt aria-hidden="true" />,
-    title: "Security-aware",
-    text: "I am building toward secure, trustworthy AI systems and data pipelines.",
+    title: "AI-security path",
+    text: "I am growing toward ML for cybersecurity and secure, trustworthy AI systems.",
   },
 ];
 
@@ -128,7 +128,7 @@ function Projects() {
           Featured <strong className="purple">Projects</strong>
         </Reveal>
         <Reveal as="p" style={{ color: "white" }}>
-          Practical AI automation, backend, and data-engineering projects I have built.
+          Python, Generative AI, automation, and data projects supporting my path into ML for cybersecurity and AI security.
         </Reveal>
         <div aria-label="Filter featured projects" className="project-filter-shell" role="group">
           <div className="project-filter-bar">
@@ -187,8 +187,8 @@ function Projects() {
         <Reveal className="project-proof-panel">
           <div className="project-proof-copy">
             <span className="project-proof-eyebrow">Why work with me</span>
-            <h2>Built to turn ideas into <strong>reliable systems.</strong></h2>
-            <p>My projects combine practical Python engineering, AI automation, and a growing focus on secure system design.</p>
+            <h2>Built to turn Python and AI ideas into <strong>practical systems.</strong></h2>
+            <p>My projects combine Python development, Generative AI, and automation while I grow toward ML for cybersecurity and secure AI design.</p>
           </div>
           <div className="project-proof-grid">
             {hiringStrengths.map((strength) => (

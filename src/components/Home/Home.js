@@ -31,15 +31,15 @@ const socialLinks = [
 const emailComposeUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=muhammadayantoorie%40gmail.com";
 
 const focusAreas = [
-  { icon: <FaServer />, title: "Backend Systems", text: "Python APIs, data pipelines, and reliable services." },
-  { icon: <FaBrain />, title: "AI Automation", text: "Practical agents and workflows that reduce manual work." },
-  { icon: <FaShieldAlt />, title: "AI Security", text: "Building toward trustworthy, secure intelligent systems." },
+  { icon: <FaServer />, title: "Python Development", text: "Python web apps, APIs, automation, and reliable backend services." },
+  { icon: <FaBrain />, title: "Generative AI", text: "LLM-powered tools, practical AI workflows, and intelligent automation." },
+  { icon: <FaShieldAlt />, title: "ML for Cybersecurity", text: "Machine-learning solutions for safer systems and emerging AI-security challenges." },
 ];
 
 const nextSteps = [
-  { icon: <FaGraduationCap />, label: "Studying", text: "BS Artificial Intelligence at NUTECH, expected 2029." },
-  { icon: <FaRocket />, label: "Building", text: "Practical Python, API, and AI automation projects." },
-  { icon: <FaLock />, label: "Growing toward", text: "AI security for safe, robust, trustworthy systems." },
+  { icon: <FaGraduationCap />, label: "Learning", text: "BS Artificial Intelligence at NUTECH, strengthening Python, machine learning, and Generative AI foundations." },
+  { icon: <FaRocket />, label: "Building", text: "Python web apps, Generative AI tools, and machine-learning workflows for cybersecurity." },
+  { icon: <FaLock />, label: "Growing toward", text: "AI Security Engineering—building safer, more reliable, and trustworthy intelligent systems." },
 ];
 
 const portfolioHighlights = [
@@ -183,17 +183,17 @@ function Home() {
             <Col md={7} className="home-header hero-copy-column order-2 order-md-1">
               <HeroReveal className="cyber-badge" delay={0.18}>
                 <span className="badge-dot" />
-                BS AI Student | Python &amp; FastAPI Developer | Islamabad, Pakistan
+                BS AI Student | Python &amp; Generative AI Developer | Islamabad, Pakistan
               </HeroReveal>
               <h1 className="cyber-tagline hero-welcome-heading">
                 <AnimatedHeroLine className="glitch-text hero-welcome-name" dataText="Hi, I'm Muhammad Ayan." delay={0.28} text="Hi, I'm Muhammad Ayan." />
-                <AnimatedHeroLine className="neon-green-text hero-welcome-role" delay={0.42} text="Python & FastAPI Developer. Machine Learning for Cybersecurity." />
+                <AnimatedHeroLine className="neon-green-text hero-welcome-role" delay={0.42} text="Python & Generative AI Developer. Machine Learning for Cybersecurity." />
               </h1>
               <HeroReveal as="h2" className="heading-name hero-welcome-signature" delay={0.54} style={{ marginTop: "16px" }}>
                 Automate. Build. <strong className="main-name">Secure.</strong>
               </HeroReveal>
               <HeroReveal className="home-hero-typewriter" delay={0.62}><Type /></HeroReveal>
-              <HeroReveal as="p" className="tagline home-hero-tagline" delay={0.7}>Building secure backend systems, AI automation, and machine-learning solutions for cybersecurity.</HeroReveal>
+              <HeroReveal as="p" className="tagline home-hero-tagline" delay={0.7}>Python and Generative AI developer building machine-learning solutions for cybersecurity, with a focus on becoming an AI Security Engineer.</HeroReveal>
               <HeroReveal className="home-hero-cta" delay={0.78}>
                 <motion.a
                   className="hero-primary-cta fm-button"
@@ -261,9 +261,10 @@ function Home() {
                 variants={profileSlideVariants}
               >
                 <div className="spatial-orbit" aria-hidden="true">
-                  <span className="spatial-node node-python">PY</span>
-                  <span className="spatial-node node-ai">AI</span>
-                  <span className="spatial-node node-secure">SEC</span>
+                  <span className="spatial-node node-python">Python</span>
+                  <span className="spatial-node node-generative-ai">Generative AI</span>
+                  <span className="spatial-node node-machine-learning">Machine Learning</span>
+                  <span className="spatial-node node-ai-security">AI Security</span>
                 </div>
                 <motion.div className="profile-depth-stage" {...profileTiltProps} style={profileTiltStyle}>
                   <span aria-hidden="true" className="profile-3d-halo profile-3d-halo--outer" />
@@ -275,7 +276,7 @@ function Home() {
                   </div>
                   <div className="future-profile-console" aria-label="Professional status">
                     <div><span>STATUS</span><strong><i />Open to collaborate</strong></div>
-                    <div><span>FOCUS</span><strong>Python + AI Automation</strong></div>
+                    <div><span>FOCUS</span><strong>Python + Generative AI</strong></div>
                     <div><span>LOCATION</span><strong>Islamabad, Pakistan</strong></div>
                   </div>
                 </motion.div>
@@ -340,9 +341,9 @@ function Home() {
         <Container>
           <Reveal className="home-contact-card">
             <div>
-              <span className="contact-availability"><FaCheckCircle /> Open to internships, projects, and collaborations</span>
-              <h2>Let&apos;s build something reliable.</h2>
-              <p>Have an AI automation, backend, or secure API challenge? I&apos;d be happy to discuss it.</p>
+              <span className="contact-availability"><FaCheckCircle /> Open to internships, junior roles, projects, and collaborations</span>
+              <h2>Let&apos;s build practical, secure AI.</h2>
+              <p>Have a Python web app, Generative AI, ML for cybersecurity, or AI-security opportunity? I&apos;d be glad to connect.</p>
             </div>
             <div className="home-contact-actions">
               <motion.a

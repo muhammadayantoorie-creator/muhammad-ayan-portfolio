@@ -19,21 +19,21 @@ const skillGroups = [
     ],
   },
   {
-    title: "Backend & API",
+    title: "Python Web Development & APIs",
     skills: [
       ["FastAPI", SiFastapi], ["Django", SiDjango], ["Flask", SiFlask], ["REST APIs", FaPlug],
       ["PostgreSQL", SiPostgresql], ["MySQL", SiMysql], ["Redis", SiRedis],
     ],
   },
   {
-    title: "AI & Automation",
+    title: "Generative AI & Machine Learning",
     skills: [
       ["OpenAI API", SiOpenai], ["LangChain", FaLink], ["n8n", FaNetworkWired], ["Selenium", SiSelenium],
       ["Pandas", SiPandas], ["NumPy", SiNumpy], ["Scikit-learn", SiScikitlearn], ["LLM orchestration", FaBrain],
     ],
   },
   {
-    title: "Security",
+    title: "Cybersecurity & Secure Development",
     skills: [
       ["Linux", SiLinux], ["OWASP Top 10", SiOwasp], ["Networking", FaNetworkWired], ["Docker", SiDocker],
       ["Container security", FaShieldAlt], ["Secure coding", FaCode],
